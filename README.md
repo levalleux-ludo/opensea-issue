@@ -3,6 +3,10 @@ project to illustrate issue with Opensea API on testnet
 
 The issue is a Bad response from the Opensea API server (resposne 500 Internal Server Error), when calling the [fulfill offer endpoint](https://docs.opensea.io/reference/generate_offer_fulfillment_data_v2)
 
+Problem is seen on Opensea Testnets, using NFT on Amoy network.
+The same usecase applied with Opensea Mainnet on Ethereum network is working.
+Some completary tests could be done further on Opensea Testnets, but another network than Amoy (Sepolia)
+
 ## Install project dependencies
 ```
 npm ci
