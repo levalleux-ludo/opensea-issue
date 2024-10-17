@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc",
     "testnet": "ts-node ./scripts/testnet.ts",
+    "testnet:sepolia": "ts-node ./scripts/testnet-sepolia.ts",
     "mainnet": "ts-node ./scripts/mainnet.ts"
   },
   "keywords": [],
