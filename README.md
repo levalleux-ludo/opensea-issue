@@ -29,3 +29,4 @@ Error: response body is not valid JSON (operation="bodyJson", info={ "response":
 ```
 Failure occurs when trying to convert the API response into JSON.
 Debugger can be used to check the response from the API server: we see 500 - Internal Server Error
+![image](https://github.com/user-attachments/assets/59080ee9-9bd7-4df9-9557-5b2247d711a8)
