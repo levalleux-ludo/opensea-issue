@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "ts-node ./scripts/test.ts"
   },
   "keywords": [],
@@ -12,5 +13,10 @@
   "devDependencies": {
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "opensea-js": "^7.1.13"
   }
 }
