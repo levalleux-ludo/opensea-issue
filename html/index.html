@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Opensea API failure</title>
+  </head>
+  <body>
+    <script>
+      function f(url, chain, orderHash, protocol_address, fulfillerAddress) {
+        fetch(
+          url,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              "offer":{
+                "hash":orderHash,
+                "chain":chain,
+                "protocol_address":protocol_address
+              },
+              "fulfiller":{
+                "address":fulfillerAddress
+              }
+            }),
+            headers: {
+              "accept": "application/json",
+              "content-type": "application/json",
+              "X-App-Id": "opensea-js",
+              "X-Api-Key": document.getElementById("api-key").value
+            }
+          }
+        ).then((response) => {
+          if (response.ok) {
+            response.json().then((json) => {
+              console.log(JSON.stringify(json))
+              document.getElementById("logs").replaceChildren(JSON.stringify(json))
+            });
+          } else {
+            console.error(response)
+            document.getElementById("logs").replaceChildren(response.status)
+          }
+        }).catch((e) => {
+          console.error(e)
+          document.getElementById("logs").replaceChildren(e)
+        });
+      }
+    </script>
+    <label>Api Key:</label>
+    <input id="api-key">
+    <h2>Mainnet</h2>
+    <button onclick="f(
+      'https://api.opensea.io/v2/offers/fulfillment_data',
+      'ethereum',
+      '0x91a770c1609dd250fc06290c0c5d4788a98e7ec6c089e97ab3a76608aa044d2d',
+      '0x0000000000000068f116a894984e2db1123eb395',
+      '0x50dDC6B8B078d650449Ecae5558b035215F9F886'
+      )">Click Me</button>
+    <h2>Testnet</h2>
+    <button onclick="f(
+      'https://testnets-api.opensea.io/v2/offers/fulfillment_data',
+      'amoy',
+      '0xfdb9ac18153a78a4e941538bf1192635acc0624eef6284b337b85316537468f4',
+      '0x0000000000000068f116a894984e2db1123eb395',
+      '0x50dDC6B8B078d650449Ecae5558b035215F9F886'
+      )">Click Me</button>
+    <h2>Logs</h2>
+    <div id="logs"></div>
+  </body>
+</html>
