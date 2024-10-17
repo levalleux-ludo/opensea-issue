@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "ts-node ./scripts/test.ts"
+    "testnet": "ts-node ./scripts/testnet.ts",
+    "mainnet": "ts-node ./scripts/mainnet.ts"
   },
   "keywords": [],
   "author": "",

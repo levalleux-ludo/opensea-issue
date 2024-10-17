@@ -6,7 +6,26 @@ project to illustrate issue with Opensea API on testnet
 npm ci
 ```
 
-## Launch the script
+## Set an Opensea Api Key in a .env file
+(see .env.example file as a template)
 ```
-npm run test
+OPENSEA_API_KEY=...
 ```
+
+## Launch the script on mainnet
+```
+npm run mainnet
+```
+=> this should be working
+
+
+## Launch the script on testnet
+```
+npm run testnet
+```
+=> this is failing when getting the fulfillment_data
+```
+Error: response body is not valid JSON (operation="bodyJson", info={ "response": {  } }, code=UNSUPPORTED_OPERATION, version=6.13.4)
+```
+Failure occurs when trying to convert the API response into JSON.
+Debugger can be used to check the response from the API server: we see 500 - Internal Server Error
